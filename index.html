@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Lista de compras</title>
+  </head>
+  <body>
+    <main class="container">
+      <header #header>
+        <img src="assets/icons/logo.svg" />
+      </header>
+
+      <section class="first-section">
+        <img src="assets/icons/arrowback.svg" alt="" />
+        <h1>Compras da semana</h1>
+      </section>
+
+      <section class="second-section">
+        <input
+          type="text"
+          class="text-field"
+          placeholder="Adicione um novo item"
+        />
+
+        <a href="#" class="button">Adicionar item</a>
+      </section>
+
+      <section class="third-section">
+        <div class="item">
+          <input type="checkbox" id="checkbox" />
+          <label for="checkbox">Pão de forma</label>
+          <img src="assets/icons/bin.svg" class="delete-btn" />
+        </div>
+
+        <div class="item">
+          <input type="checkbox" id="coffee" />
+          <label for="coffee">Café preto</label>
+          <img src="assets/icons/bin.svg" class="delete-btn" />
+        </div>
+
+        <div class="item">
+          <input type="checkbox" id="juice" />
+          <label for="juice">Suco de laranja</label>
+          <img src="assets/icons/bin.svg" class="delete-btn" />
+        </div>
+
+
+        <div class="item">
+          <input type="checkbox" id="bolacha" />
+          <label for="bolacha">Bolacha</label>
+          <img src="assets/icons/bin.svg" class="delete-btn" />
+        </div>
+
+      </section>
+
+      <div id="alert">
+        <img src="assets/icons/warning-circle.svg">
+        <span>O item foi removido da lista</span>
+        <img src="assets/icons/x.svg">
+      </div>
+    </main>
+  </body>
+</html>
