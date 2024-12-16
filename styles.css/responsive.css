@@ -1,10 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --max-width: 375px;
+  width: min(var(--max-width), 100% - 32px * 2);
+  margin-inline: auto;
+  padding-top: 25px;
+}
+
+@media (width >=80em) {
+  .container {
+    --max-width: 40rem;
+  }
+}
+
+
 @media(width <= 82em ){
   .container {
     --max-width: 375px;
-  }
-
-  input {
-    width: 327px;
   }
 
   .second-section {
@@ -16,7 +29,6 @@
 
   .text-field {
     width: 100%;
-    
   }
 
   .button {
@@ -25,13 +37,5 @@
     text-align: center;
     padding: 12px;
   }
-
-
-
-
-  
-
-
-
-
 }
+

@@ -3,10 +3,6 @@
   margin-bottom: 36px;
 }
 
-
-
-
-
 .item {
   display: flex;
   align-items: center;
@@ -55,13 +51,7 @@ input[type="checkbox"]:checked + label::before {
 
 
 .delete-btn {
-  /* background-color: transparent; */
-  /* border: none; */
   cursor: pointer;
-  /* display: flex; */
   margin-left: auto;
   height: 40px;
 }
-
-
-

@@ -39,29 +39,3 @@ a {
   text-decoration: none;
   color: var(--always-white);
 }
-
-/* .container {
-  max-width: 370px;
-  margin-inline: auto;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-} */
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  --max-width: 375px;
-  width: min(var(--max-width), 100% - 32px * 2);
-  margin-inline: auto;
-  padding-top: 25px;
-}
-
-@media (width >=80em) {
-  .container {
-    --max-width: 40rem;
-  }
-}
-
-
