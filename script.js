@@ -1,19 +1,33 @@
-//CRIANDO A VARIAVEL BUTTON PRA MANIPULAR ELE
+//CRIAÇÃO DAS VARIÁVEIS
 const button = document.querySelector(".button");
-
 const valor = document.querySelector(".text-field");
-const lista = document.querySelector(".third-section");
+const list = document.querySelector(".third-section");
+const alerta = document.querySelector("#alerta")
+
+//DIZENDO QUE SÓ PODE USAR LETRA OU ESPAÇO
+valor.addEventListener("input", (event) => {
+  event.target.value = event.target.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, "");
+});
 
 
-function criarItem() {
+//FUNÇÃO PRINCIPAL
+function createItem() {
+
+  const text = valor.value.trim(); // Pega o texto e remove espaços extras
+
+  if (!text) {
+    alert("O texto não pode estar vazio!"); // Exibe uma mensagem de erro
+    return; // Impede a criação do item
+  }
+
   //CRIA A NOVA DIV PAI
-  const divItem = document.createElement("div");
-  divItem.className = "item"
+  var divItem = document.createElement("div");
+  divItem.className = "item";
 
   //CRIA O INPUT CHECKBOX
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  checkbox.id = `product-${Math.random()}` //ID ÚNICO PARA EVITAR CONFLITOS
+  checkbox.id = `product-${Math.random()}`; //ID ÚNICO PARA EVITAR CONFLITOS
 
   //CRIA O LABEL VINCULADO AO CHECKBOX
   const label = document.createElement("label");
@@ -21,37 +35,55 @@ function criarItem() {
   label.textContent = valor.value;
 
   //CRIA O ÍCONE DE DELETAR
-    const deleteIcon = document.createElement("img");
-    deleteIcon.src = "assets/icons/bin.svg";
-    deleteIcon.className = "delete-btn";
+  const deleteIcon = document.createElement("img");
+  deleteIcon.src = "assets/icons/bin.svg";
+  deleteIcon.className = "delete-btn";
 
-    //ADICIONA OS ELEMENTOS DENTRO DA DIV PAI
-    divItem.appendChild(checkbox);
-    divItem.appendChild(label);
-    divItem.appendChild(deleteIcon);
+  //ADICIONA OS ELEMENTOS DENTRO DA DIV PAI
+  divItem.appendChild(checkbox);
+  divItem.appendChild(label);
+  divItem.appendChild(deleteIcon);
 
-    //ADICIONA A NOVA DIV A LISTA
-    lista.append(divItem)
+  //ADICIONA A NOVA DIV A LISTA
+  list.append(divItem);
 
-    //ADICIONA A CLASSE PARA EXIBIR O ITEM
-    divItem.classList.add("show")
+  //ADICIONA A CLASSE PARA EXIBIR O ITEM
+  divItem.classList.add("show");
 
-    //LIMPA O VALOR DO CAMPO DE TEXTO
-    valor.value ="";
+  //LIMPA O VALOR DO CAMPO DE TEXTO
+  valor.value = "";
 }
 
 
 //ESCUTA O CLIQUE NO BOTÃO
-button.addEventListener("click", criarItem);
+button.addEventListener("click", createItem);
 
-// Escuta a tecla Enter no documento
+
+// ESCUTA A TECLA ENTER NO DOCUMENTO
 document.addEventListener("keydown", (event) => {
-  // Captura a tecla Enter e verifica se o foco está no checkbox ou no label
+  //CAPTURA A TECLA ENTER E VERIFICA SE O FOCO ESTÁ NO CHECKBOX OU NO LABEL
   if (
     event.key === "Enter" &&
     (document.activeElement.tagName === "LABEL" ||
       document.activeElement.tagName === "INPUT")
   ) {
-    criarItem(); // Chama a função para criar o item
+    createItem(); // Chama a função para criar o item
   }
 });
+
+
+list.addEventListener("click", (event) => {
+  // VERIFICA SE O CLIQUE NO DELETE
+  if (event.target.classList.contains("delete-btn")) {
+    // ACESSA O ELEMENTO PAI (DIViTEM) E REMOVE O ITEM
+    const divItem = event.target.closest(".item");
+    divItem.remove(); // Remove a div do DOM
+    alerta.classList.add("show")
+
+    setTimeout(() => {
+      alerta.classList.remove("show");
+    }, 1800)
+  }
+});
+
+
