@@ -3,6 +3,8 @@
   margin-bottom: 36px;
 }
 
+
+
 .item {
   display: flex;
   align-items: center;
@@ -56,4 +58,12 @@ input[type="checkbox"]:checked + label::before {
   cursor: pointer;
   margin-left: auto;
   height: 40px;
+}
+
+.show {
+
+}
+
+.hide {
+  display: none;
 }
